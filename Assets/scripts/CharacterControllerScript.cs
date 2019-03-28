@@ -61,7 +61,7 @@ public class CharacterControllerScript : MonoBehaviour
         //-1 возвращается при нажатии на клавиатуре стрелки влево (или клавиши А),
         //1 возвращается при нажатии на клавиатуре стрелки вправо (или клавиши D)
         float move = Input.GetAxis("Horizontal");
-
+        float moveUp = Input.GetAxis("Vertical");
         //if (other.gameObject.name == "gun") // TransparentBoxForOpenBook - вместо этого названия невидимого куба 
         //{
         //    Book.GetComponent<Animator>().Play("BOOKANIMATION"); // если анимацией, то сделать ссылку на книгу в полях класса и взять компонент аниматор котором уже будет готовая анимация книги и вызвать её ---------- это если нужно плавно
@@ -74,7 +74,9 @@ public class CharacterControllerScript : MonoBehaviour
 
         //обращаемся к компоненту персонажа RigidBody2D. задаем ему скорость по оси Х, 
         //равную значению оси Х умноженное на значение макс. скорости
-        GetComponent<Rigidbody2D>().velocity = new Vector2(move * 14, GetComponent<Rigidbody2D>().velocity.y);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        if(isGrounded)
+        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, moveUp * maxSpeed);
         gameObject.GetComponentInChildren<gunControll>().JumpState();
 
         //если нажали клавишу для перемещения вправо, а персонаж направлен влево
@@ -94,7 +96,7 @@ public class CharacterControllerScript : MonoBehaviour
             //устанавливаем в аниматоре переменную в false
             anim.SetBool("Ground", false);
             //прикладываем силу вверх, чтобы персонаж подпрыгнул
-           GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 800));
+           GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 900));
         }
     }
 
