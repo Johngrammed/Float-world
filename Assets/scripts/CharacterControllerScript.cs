@@ -24,6 +24,10 @@ public class CharacterControllerScript : MonoBehaviour
 
     public LayerMask whatIsDanger;
 
+    public LayerMask Gun;
+
+    
+
     /// <summary>
     /// Начальная инициализация
     /// </summary>
@@ -58,6 +62,12 @@ public class CharacterControllerScript : MonoBehaviour
         //1 возвращается при нажатии на клавиатуре стрелки вправо (или клавиши D)
         float move = Input.GetAxis("Horizontal");
 
+        //if (other.gameObject.name == "gun") // TransparentBoxForOpenBook - вместо этого названия невидимого куба 
+        //{
+        //    Book.GetComponent<Animator>().Play("BOOKANIMATION"); // если анимацией, то сделать ссылку на книгу в полях класса и взять компонент аниматор котором уже будет готовая анимация книги и вызвать её ---------- это если нужно плавно
+       //     Method(); // это если с помощью кода, то есть сделай отдельный метод в котором выведи эти книгу на экран ------------ это если нужно сразу, либо если хочешь плавно то используй корутину
+       // }
+
         //в компоненте анимаций изменяем значение параметра Speed на значение оси Х.
         //приэтом нам нужен модуль значения
         anim.SetFloat("speed", Mathf.Abs(move));
@@ -65,6 +75,7 @@ public class CharacterControllerScript : MonoBehaviour
         //обращаемся к компоненту персонажа RigidBody2D. задаем ему скорость по оси Х, 
         //равную значению оси Х умноженное на значение макс. скорости
         GetComponent<Rigidbody2D>().velocity = new Vector2(move * 14, GetComponent<Rigidbody2D>().velocity.y);
+        gameObject.GetComponentInChildren<gunControll>().JumpState();
 
         //если нажали клавишу для перемещения вправо, а персонаж направлен влево
         if (move > 0 && !isFacingRight)
@@ -78,7 +89,7 @@ public class CharacterControllerScript : MonoBehaviour
     private void Update()
     {
         //если персонаж на земле и нажат пробел...
-        if (isGrounded && Input.GetKeyDown(KeyCode.W))
+        if (isGrounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)))
         {
             //устанавливаем в аниматоре переменную в false
             anim.SetBool("Ground", false);
