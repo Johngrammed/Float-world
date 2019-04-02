@@ -7,7 +7,7 @@ public class CloudCreator : MonoBehaviour
     public GameObject Cloud;
     public bool CloudOnScreen = false;
 
-    private float timeInSecondsP;
+    private float timeInSecondsP = 35;
     private int minutesP;
     private int secondsP;
 

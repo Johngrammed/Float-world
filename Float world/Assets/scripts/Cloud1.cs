@@ -10,7 +10,7 @@ public class Cloud1 : MonoBehaviour
     {
         if (Random.Range(0, 2) == 1)
         {
-             transform.position = new Vector3(-11f, Random.Range(-3f, 4f), 10f);
+             transform.position = new Vector3(-23f, Random.Range(-11f, -3f), 10f);
              RightToLeft = true;
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
@@ -18,7 +18,7 @@ public class Cloud1 : MonoBehaviour
         }
         else
         {
-             transform.position = new Vector3(11f, Random.Range(-3f, 4f), 10f);
+             transform.position = new Vector3(-1f, Random.Range(-11f, -3f), 10f);
              RightToLeft = false;
         }
     }
@@ -26,7 +26,7 @@ public class Cloud1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x > 11f  || transform.position.x < -11f)
+        if (transform.position.x > -1f  || transform.position.x < -23f)
         {
             Destroy(gameObject);
         }

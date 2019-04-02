@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: Wooioio
   productName: Float.world34D
-  defaultCursor: {fileID: 2800000, guid: a82b62c1fa188ab4ca491f4ba6387dd4, type: 3}
+  defaultCursor: {fileID: 2800000, guid: b5bad9a04d14ac147a1b8abf7723d05a, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
