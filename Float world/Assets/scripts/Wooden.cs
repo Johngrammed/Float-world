@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Wooden : MonoBehaviour
 {
+    public GameObject RestartButton;
+    public GameObject Green;
     // Start is called before the first frame update
     void Start()
     {
-        
+       //anim = Green.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -16,6 +18,15 @@ public class Wooden : MonoBehaviour
         if (transform.position.y < -17f)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void OnDestroy()
+    {
+        GameObject[] Wood = GameObject.FindGameObjectsWithTag("Wood");
+        if (Wood.Length < 1 && RestartButton != null && GameObject.Find("Green") != null)
+        {
+            GameObject.Find("Green").GetComponent<Ball>().Win = true;
         }
     }
 

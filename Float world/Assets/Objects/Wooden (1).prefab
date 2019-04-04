@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8277090494282489647}
   m_Layer: 8
   m_Name: Wooden (1)
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,3 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45769adfa7d92f34d80f1f731812eb95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RestartButton: {fileID: 9210262429886595251, guid: e6b3387e68800b540ba27fd964165bd4,
+    type: 3}
+  Green: {fileID: 6867752978831751142, guid: 089a53dbe1a83ab4e9667c53ec501907, type: 3}
