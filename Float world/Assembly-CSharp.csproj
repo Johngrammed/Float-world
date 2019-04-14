@@ -57,6 +57,7 @@
      <Compile Include="Assets\scripts\Cloud1.cs" />
      <Compile Include="Assets\scripts\CloudCreator.cs" />
      <Compile Include="Assets\scripts\Conditions.cs" />
+     <Compile Include="Assets\scripts\PauseButton.cs" />
      <Compile Include="Assets\scripts\RestartButton.cs" />
      <Compile Include="Assets\scripts\Wooden.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
